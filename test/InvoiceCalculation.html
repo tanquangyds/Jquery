@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ex1 {
+            width: 600px;
+            border: 2px solid blue;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        .btn {
+            margin-left: 30px;
+            min-width: 200px;
+        }
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="ex1">
+        <form action="">
+            <h1 class="title">Calculate monthly electricity bill for customers</h1>
+        <label for="">Star-up period:</label>
+            <input type="text" id="start">
+            <span class="message" id="message">*</span> <br>
+        <label for="">End-of-term digits:</label>
+            <input type="text" id="end">
+            <span class="message" id="message">*</span> <br>
+        <label for="">VAT tax:</label>
+            <input type="text" id="vat" value="10%" disabled>
+            <span class="message" id="message"></span> <br>
+        <label for="">The number of letters:</label>
+            <input type="text" id="letters" disabled>
+            <span class="message" id="message"></span> <br>
+        <label for="">The total amount payable:</label>
+            <input type="text" id="total" disabled>
+            <span class="message" id="message"></span> <br>
+        <input class="btn" type="button" id="calculate" value="Calculate electricity bill">
+        <input class="btn" type="button" id="reset" value="Clear">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            // cal function
+            $('#calculate').click(function() {
+                var processEnt = function () {
+                    var start = parseInt($('#start').val());
+                    console.log(start); 
+                    var end = parseInt($('#end').val());
+                    var vatTax = parseInt($('#end').val());
+                    var vat = 0.1;
+                    var total = 0;
+                    var isValid = true;
+                    if (start == "") {
+                        $('#start').next().text("This fields is required");
+                        isValid = false;
+                    } else if (isNaN(start)) {
+                        $('#start').next().text("This fields must be a number");
+                        isValid = false;
+                    } else if (start < 0) {
+                        $('#start').next().text("This fields must be over zero");
+                        isValid = false;
+                    } else {
+                        $('#start').next().text("");
+                        isValid = true;
+                    };
+                    if (end == "") {
+                        $('#end').next().text("This fields is required");
+                        isValid = false;
+                    } else if (isNaN(end)) {
+                        $('#end').next().text("This fields must be a number");
+                        isValid = false;
+                    } else if (start > end) {
+                        $('#end').next().text("End of term digits must be greater start of term");
+                        isValid = false;
+                    }
+                    else {
+                        $('#end').next().text("");
+                        isValid = true;
+                    };
+                    // process
+                    if (isValid) {
+                        var sum = end - start;
+                        $('#letters').val(sum);
+                        function cal(val, price) {
+                            return val * price * vat + val*price;
+                        };
+                        sum <= 50 ? total = cal(sum, 1480) : sum <= 100 ? total = cal(sum, 1500) : total = cal(sum, 1800);
+                        $('#total').val(total);
+                    };
+                };
+                processEnt();
+            });
+            // reset value
+            $('#reset').click(function() {
+                $('#start').val("");
+                $('#end').val("");
+                $('#letters').val("");
+                $('#total').val("");
+            });
+        });
+    </script>
+</body>
+</html>

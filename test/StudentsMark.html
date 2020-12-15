@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ex{ 
+            width: 600px;
+            border: 2px solid blue;
+            border-radius: 2px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .message { 
+            color: red;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        .close {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ex">
+        <form >
+            <h1>EXERCISE 01</h1>
+            <p>Please insert number of student</p>
+            <input type="text" id="total">
+            <input type="button" id="start" value="Start">
+            <span class="message"></span>
+            <div class="input_score close">
+                <p id="student_i"></p>
+                <input type="text" id="score">
+                <input type="button" value="Add" id="push">
+                <input type="button" value="Reset array" id="reset">
+                <span id="message" class="message"></span>
+                <p>Feature</p>
+                <p>1. Print student's Score:</p>
+                <input type="button" value="Print score of students" id="print">
+                <span id="print_list" class="print"></span> <br>
+                <p>2. Print student's Score over 5:</p>
+                <input type="button" value="Print score of students over 5" id="print_2">
+                <span id="print_list_pass" class="print"></span> <br>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            var arrScore = [];
+            //  input number of student
+            $('#start').click(function() {
+                var numberOfStudent = ($('#total').val());
+                var students = parseFloat(numberOfStudent);
+                isValid = true;
+                function process() {
+                    if (numberOfStudent == "") {
+                        isValid = true;
+                        students = 5;
+                    } else if (students !== "" && isNaN(students)) {
+                        $('#start').next().text('This fields must be numeric');
+                        isValid  = false; 
+                    } else if (students < 0) {
+                        $('#start').next().text('This number must be greater than zero');
+                        isValid = false; 
+                    } else if (students !== parseInt(students)) {
+                        $('#start').next().text('This number must be integer number');
+                        isValid = false;
+                    } else {
+                        $('#start').next().text('');
+                        isValid = true;
+                    }
+                };
+                process();
+                if (isValid) {
+                    n = students;
+                    $('.input_score').attr('class', 'open');
+                    $('#student_i').text('Input score of student: 1');
+                }
+                var i = 2;
+                $('#push').click(function() {
+                    valid =true;
+                    var iScore = parseFloat($('#score').val());
+                    function checkScore() {
+                        if (isNaN(iScore) || iScore < 0 || iScore > 10) {
+                            $('#message').text('Please input a valid score (from 0 to 10).');
+                            valid = false;
+                        } else {
+                            $('#message').text('');
+                            valid = true;
+                        }
+                    }
+                    checkScore();
+                    
+                    if (valid) {
+                        arrScore.push(iScore);
+                        $('#score').val("");
+                        $('#student_i').text(`Input score of student: ${i}`);
+                        if (i === students + 1) {
+                            $('#student_i').text('Finish');
+                            $('#score').attr('disabled', 'disabled');
+                        }
+                        i = i + 1;
+                    };
+                    // console.log(arrScore);
+                })
+            });
+            console.log(arrScore);
+            $('#print').click(function() {
+                arrScore.forEach(function(value, i) {
+                    $('#print_list').append(`<p> Std: ${i + 1} : ${value} point </p>`);
+                })
+            })
+            $('#print_2').click(function() {
+                var listPass = [];
+                arrScore.forEach(function(value, i) {
+                    if (value > 5) {
+                        var x = { std: i + 1  , point: value };
+                        listPass.push(x);
+                    }
+                })
+                console.log(listPass)
+                listPass.forEach(function(value) {
+                    var output = '';
+                    for (var property in value) {
+                        output += property + ': ' + value[property] + ' ';
+                    }
+                    $('#print_list_pass').append(`<p> ${output}</p>`);  
+                })
+            })
+        })
+        
+        
+    </script>
+</body>
+</html>

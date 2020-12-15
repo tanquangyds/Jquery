@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .header {
+        display: flex;
+        justify-content: center;
+    }
+    .header_tittle {
+        margin: 10px auto;
+    }
+    .showcase {
+
+        width: 100%;
+        height: 400px;
+        background-image: url(https://i1-dulich.vnecdn.net/2020/12/11/Topas-5986-1607671552.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=ERjU_ZYtpb7C7m-pHOPGnA);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .container {
+        display: flex;
+    }
+    .nav {
+        width: 20%;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .main_content {
+        width: 80%;
+        border: 1px solid #ccc;
+        margin-left: 20px;
+        padding: 10px;
+    }
+    .close {
+        display: none;
+    }
+    .title {
+        cursor: pointer;
+        margin-left: 25px;
+    }
+    .object {
+        position: relative;
+        color: #2C5A81;
+    }
+
+    .plus::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 2px;
+        background-color: black;
+        top: 12px;
+        left: 0px;
+    }
+
+    .plus::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 15px;
+        background-color: black;
+        top: 6px;
+        left: 6px;
+    }
+
+    .minus::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 2px;
+        background-color: black;
+        top: 12px;
+        left: 0px;
+
+    }
+    .description {
+        margin-left: 30px;
+    }
+    .focus {
+        color: red;
+        text-decoration: underline; 
+    }
+    .detail {
+        display: flex;
+    }
+    .text_content {
+        width: 50%;
+    }
+    .content {
+        width: 50%;
+        cursor: pointer;
+    }
+    .content_img {
+        margin: 10px;
+        float: right;
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header_tittle">59% người Việt muốn đi du lịch bền vững hơn</h1>
+    </div>
+    <div class="showcase"></div>
+    <div class="container">
+        <div class="nav">
+            <div class="object">
+                <h2 class="title minus">HTML</h2>
+                <div class="description">
+                    <p class="content focus">
+                        Description
+                    </p>
+                    <p class="content ">
+                        Tutorial
+                    </p>
+                    <p class="content">
+                        Reference
+                    </p>
+                </div>
+            </div>
+            <div class="object">
+                <h2 class="title plus">CSS</h2>
+                <div class="description close">
+                    <p class="content">
+                        Description
+                    </p>
+                    <p class="content">
+                        Tutorial
+                    </p>
+                    <p class="content">
+                        Reference
+                    </p>
+                </div>
+            </div>
+            <div class="object">
+                <h2 class="title plus">JAVASCRIPT</h2>
+                <div class="description close">
+                    <p class="content">
+                        Description
+                    </p>
+                    <p class="content">
+                        Tutorial
+                    </p>
+                    <p class="content">
+                        Reference
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="content_data">
+                <h2 class="content_title">
+                    Joe Biden được bầu làm Tổng thống Mỹ
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <div class="content_img">
+                            <img  src="https://i1-vnexpress.vnecdn.net/2020/12/15/biden-8-JPG-5618-1607987633.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=WyQNRVc04JSD49n6frGvBw" alt="">
+                        </div>
+                        <p class="text">
+                            Joe Biden nhận được 320 phiếu trong cuộc họp của đại cử tri đoàn ngày 14/12, chính thức trở thành Tổng thống Mỹ tiếp theo.
+
+                            4 đại cử tri bang Hawaii chiều 14/12 (sáng 15/12 giờ Hà Nội) là những người cuối cùng bỏ lá phiếu trực tiếp bầu tổng thống Mỹ, kết thúc quy trình bầu cử được quy định trong Hiến pháp nước này. Kết quả cuối cùng của cuộc bầu cử đại cử tri là Joe Biden được 306 phiếu, còn Tổng thống Donald Trump được 232 phiếu.
+                            Với kết quả này, Biden chính thức giành chiến thắng trước Trump, bất chấp các nỗ lực nhằm đảo ngược kết quả bầu cử của ông chủ Nhà Trắng.
+                            Không có người nào trong tổng số 538 đại cử tri năm nay là "đại cử tri bất tuân", những người bỏ phiếu trái với cam kết ban đầu của mình. Trump và các đồng minh từng kỳ vọng sẽ có đủ phiếu "đại cử tri bất tuân" để lật ngược kết quả bầu cử.Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"
+                            Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"
+                            Joe Biden nhận được 320 phiếu trong cuộc họp của đại cử tri đoàn ngày 14/12, chính thức trở thành Tổng thống Mỹ tiếp theo.
+                            4 đại cử tri bang Hawaii chiều 14/12 (sáng 15/12 giờ Hà Nội) là những người cuối cùng bỏ lá phiếu trực tiếp bầu tổng thống Mỹ, kết thúc quy trình bầu cử được quy định trong Hiến pháp nước này. Kết quả cuối cùng của cuộc bầu cử đại cử tri là Joe Biden được 306 phiếu, còn Tổng thống Donald Trump được 232 phiếu.
+                            Với kết quả này, Biden chính thức giành chiến thắng trước Trump, bất chấp các nỗ lực nhằm đảo ngược kết quả bầu cử của ông chủ Nhà Trắng.
+                            Không có người nào trong tổng số 538 đại cử tri năm nay là "đại cử tri bất tuân", những người bỏ phiếu trái với cam kết ban đầu của mình. Trump và các đồng minh từng kỳ vọng sẽ có đủ phiếu "đại cử tri bất tuân" để lật ngược kết quả bầu cử.Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"
+                            Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Đại cử tri đoàn Mỹ sắp bỏ phiếu bầu tổng thống
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">538 đại cử tri Mỹ sẽ bỏ phiếu hôm nay để bầu tổng thống và chấm dứt mọi nỗ lực kiện tụng kết quả bầu c</p>
+                        <p class="text">Các đại cử tri Mỹ, trong đó có những chính trị gia nổi tiếng như vợ chồng Bill và Hillary Clinton, hôm nay sẽ tập trung tại tòa nhà nghị viện của 50 bang và thủ đô Washington để bỏ lá phiếu trực tiếp bầu tổng thống của mình. Người giành được tối thiểu 270 phiếu đại cử tri sẽ trở thành tổng thống tiếp theo của Mỹ.
+                        </p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/14/httpss3-ap-northeast-1-amazona-9890-1569-1607910709.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=muC6a7rteIRyA46UT_pLPQ    " alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Zuckerberg đã 'nuốt chửng' đối thủ thế nào  
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/15/biden-8-JPG-5618-1607987633.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=WyQNRVc04JSD49n6frGvBw" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Một hãng xe bị ngừng hoạt động ở sân bay Tân Sơn Nhất
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/11/don-taxi-san-bay-1-7526-1607683195.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=E-sJdPoT1oZ5c6VPXmCerg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Ôtô khách chở 30 công nhân tông xe tải
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/15/xe-buyt-5921-1608004468.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Ob40eFCDlzXzUwuGRrxgaA" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    5 bước thẩm định khi mua căn hộ có giá kỷ lục
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2020/12/13/a-tb-gia-thue-nha-pho-lao-doc-7660-4933-1607843381.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=BVCpVcyLVXnxNgoybVnGjw" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Quy hoạch và tiêu chuẩn chức danh Ủy viên Bộ Chính trị
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/14/BAC5115-9348-1607943532.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Ybc1Wo5xlXcx0cHgxia3PA" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Công tác nhân sự Đại hội XIII qua các hội nghị Trung ương
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/14/BAC5118-3348-1607959341.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=Ag2W1PZPXYFX1PVeZV8fDg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content_data close">
+                <h2 class="content_title">
+                    Zuckerberg đã 'nuốt chửng' đối thủ thế nào  
+                </h2>
+                <div class="detail">
+                    <div class="content_text">
+                        <p class="text">Mark Zuckerberg luôn trong tâm thế sợ Facebook bị cạnh tranh nên sẵn sàng chi hàng tỷ USD để thâu tóm các đối thủ tiềm năng.</p>
+                        <p class="text">"Đây là mối đe dọa lớn nhất với sản phẩm của chúng ta trong 5 năm qua" - trích một email gửi đến cho nhân viên Facebook mà Ủy ban Thương mại Liên bang Mỹ (FTC) thu thập được.
+                        </p>
+                        <p class="text">Đó là vào ngày 4/10/2012, Facebook - khi đó đã là mạng xã hội lớn nhất thế giới - quyết định mua Instagram với giá một tỷ USD. 7 tháng trước đó, Facebook dính phải một vụ bê bối và đang trên đà phục hồi. Một tỷ USD cũng là con số lớn nhất mà họ có thể chi ra khi đó để thâu tóm một công ty.</p>
+                        <p class="text">Năm 2014, WhatsApp tiếp tục "lọt vào tầm ngắm". Việc ứng dụng nhắn tin này liên tục tăng trưởng về người dùng khiến Zuckerberg và những người đứng đầu "đứng ngồi không yên". Lo sợ bị cạnh tranh, Facebook đã bỏ ra 19 tỷ USD để mua lại - một con số kỷ lục mới.</p>
+                        <p class="text">Joe Biden dự kiến có bài phát biểu trước toàn quốc vào tối 14/12 (sáng 15/12 giờ Hà Nội), trong đó khẳng định "đại dịch hay lạm dụng quyền lực cũng không dập tắt được ngọn lửa dân chủ"</p>
+                    </div>
+                    <div class="content_img">
+                        <img src="https://i1-vnexpress.vnecdn.net/2020/12/15/biden-8-JPG-5618-1607987633.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=WyQNRVc04JSD49n6frGvBw" alt="">
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script>
+        // show title bar
+        var title = document.querySelectorAll('.title');
+        var titleArr = Array.from(title);
+        titleArr.forEach(function(el) {
+            el.addEventListener('click', handle);
+            function handle() {
+                var target = el.nextElementSibling;
+                if (target.classList.contains('close')) {
+                target.classList.remove('close');
+                this.classList.add('minus');
+                this.classList.remove('plus');
+                } else {
+                    target.classList.add('close',);
+                    this.classList.remove('minus');
+                    this.classList.add('plus');
+                }
+            }
+        })
+        // show data
+        var dataTileElements = document.querySelectorAll('.content');
+        var dataTitleArr = Array.from(dataTileElements);
+        var dataElement = document.querySelectorAll('.content_data');
+        var dataArr = Array.from(dataElement);
+        dataTitleArr.forEach(function(el, i) {
+            el.addEventListener('click', show);
+            function show() {
+                dataTitleArr.forEach(function(el, i) {
+                    el.classList.remove('focus');
+                })
+                dataArr.forEach(function(e) {
+                    e.classList.add('close');
+                });
+                el.classList.add('focus');
+                dataArr[i].classList.remove('close');
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>
