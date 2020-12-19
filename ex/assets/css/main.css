@@ -100,6 +100,11 @@ header {
     flex-direction: column;
 }
 
+.manual__main {
+    display: flex;
+    padding-top: 60px;
+}
+
 .manual__title {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -111,7 +116,7 @@ header {
 
 .manual__img__link {
     display: block;
-    margin-left: 280px;
+    margin-left: 270px;
     border-radius: 40px;
     box-shadow: 50px 30px 150px rgba(46, 4, 4, 0.15);
 }
