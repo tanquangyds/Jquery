@@ -7,13 +7,16 @@
 .grid.wide {
     max-width: 1440px;
     margin: 0 auto;
+    height: 100%;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -4px;
-    margin-right: -4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 100%;
+    height: 100%;
 }
 
 .row.no-gutters {

@@ -1,9 +1,14 @@
 /* header */
-.header {
-    height: 160px;
+header {
+    height: 155px;
 }
+.logo {
+    margin-left: 90px;
+}
+
 .header__nav {
     margin-left: auto;
+    margin-right: 50px;
 }
 .nav__list {
     display: flex;
@@ -24,14 +29,115 @@
     background-position: center;
     background-size: cover;
     display:flex;
-    /* justify-content: center; */
 }
 .showcase__content {
     display: block;
-    margin:auto;
+    margin: 0 auto;
+    color: white;
+}
+
+.showcase__subtitle {
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    margin-top: 72px;
+}
+
+.showcase__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 58px;
+    line-height: 80px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.showcase__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.showcase__download {
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
 }
 
 .overview {
     width: 100%;
     height: 604px;
+    position: relative;
+}
+
+.overview::after {
+    content: '';
+    position: absolute;
+    width: 884px;
+    height: 2px;
+    background-color: #E4E4E4;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.overview__img--1 {
+    position: absolute;
+    top: -143px;
+    left: 25%;
+}
+.overview__img--2 {
+    position: absolute;
+    top: -27px;
+    left: 50%
+}
+
+.manual {
+    display: flex;
+    flex-direction: column;
+}
+
+.manual__title {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 36px;
+    margin: 73px auto 150px;
+}
+
+.manual__img__link {
+    display: block;
+    margin-left: 280px;
+    border-radius: 40px;
+    box-shadow: 50px 30px 150px rgba(46, 4, 4, 0.15);
+}
+
+.manual__feature {
+    margin-left: 205px;
+}
+
+.feature__subtitle {
+    color:var(--primary-color);
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    margin-top: 140px;
+}
+
+.feature__title {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 57px;
+    margin-top: 22px;
+}
+
+.feature__detail {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    margin-top: 28px;
 }
