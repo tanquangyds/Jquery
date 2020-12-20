@@ -75,7 +75,7 @@ html {
 .btn {
     min-width: 142px;
     height: 34px;
-    border: none;
+    border: 2px solid white;
     border-radius: 3px;
     font-weight: bold;
     font-size: 24px;
@@ -88,7 +88,8 @@ html {
     justify-content: center;
     align-items: center;
     line-height: 1.6rem;
-    background-color: var(--white-color);
+    background-color: transparent;
+    color: white;
 }
 
 .btn_showcase {
@@ -109,6 +110,7 @@ html {
 .btn.btn--primary {
     background-color: var(--primary-color);
     color: var(--white-color);
+    border: none;
 
 }
 
@@ -225,4 +227,13 @@ html {
     display: block;
     text-align: center;
     border-radius: 2px;
+}
+
+.btn--square {
+    width: 142px;
+    height: 64px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
 }
