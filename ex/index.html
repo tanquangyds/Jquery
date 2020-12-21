@@ -211,7 +211,7 @@
 
           <div class="form-group">
             <label for="address" class="form-label">Address</label>
-            <input id="adress" name="address" type="text" class="form-control">
+            <input id="address" name="address" type="text" class="form-control">
             <span class="form-message"></span>
           </div>
     
@@ -219,8 +219,11 @@
         </form>
         
       </div>
+      <!-- Sweet Alert 2- Successful Login/Register -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="./assets/js/validator.js"></script>
       <script>
+        var arrData = [];
         document.addEventListener('DOMContentLoaded', function () {
           Validator({
             form: '#form-1',
@@ -242,26 +245,69 @@
               Validator.isPhoneNumber('#phone'),
             ],
             onSubmit: function (data) {
-              // Call API
-              console.log(data);
+                Swal.fire({
+                        icon: 'success',
+                        title: `Thank you for your registration!`,
+                        showConfirmButton: true,
+                        confirmButtonText: 
+                        '<i>Login now</i>',
+                        // timer: 1500,
+                })
+                arrData.push(data);
+                localStorage['data'] = JSON.stringify(arrData);
+                
+                // console.log(showData);
             }
           });
-    
-    
           Validator({
             form: '#form-2',
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
-              Validator.isRequired('#username'),
+            Validator.isRequired('#username'),
+              Validator.isUsername('#username'),
+              Validator.minLength('#username', 6, 'Username must be at least 6 characters long'),
+              Validator.maxLength('#username', 20, 'Username must be maximum 20 characters long'),
               Validator.minLength('#password', 6),
+              Validator.maxLength('#password', 12),
+              Validator.isPassword('#password'),
             ],
             onSubmit: function (data) {
-              // Call API
-              console.log(data);
+                // get username and password
+                var userName = data.username;
+                var password = data.password;
+                // get data from local storage
+                showData = JSON.parse(localStorage['data']);
+                // verify user
+                var isVerified = false;
+                showData.forEach(function (el) {
+                    if (el.username === userName && el.password === password) {
+                        isVerified = true;
+                    };
+                });
+                if (isVerified) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: `Welcome to Bella onoje's food`,
+                        showConfirmButton: true,
+                        confirmButtonText: 
+                        `<a href="index.html">Next</a>`,
+                        // timer: 1500,
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Wrong username or password!',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Retry',
+                    })
+                }
+                // console.log(data);
             }
           });
         });
+        
       </script>
 </body>
 </html>

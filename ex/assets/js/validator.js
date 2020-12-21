@@ -1,5 +1,6 @@
 // Đối tượng `Validator`
 function Validator(options) {
+    var arrData = [];
     function getParent(element, selector) {
         while (element.parentElement) {
             if (element.parentElement.matches(selector)) {
@@ -51,7 +52,6 @@ function Validator(options) {
     if (formElement) {
         // Khi submit form
         formElement.onsubmit = function (e) {
-            console.log(e);
             e.preventDefault();
 
             var isFormValid = true;
@@ -70,7 +70,6 @@ function Validator(options) {
                 if (typeof options.onSubmit === 'function') {
                     var enableInputs = formElement.querySelectorAll('[name]');
                     var formValues = Array.from(enableInputs).reduce(function (values, input) {
-                        
                         switch(input.type) {
                             case 'radio':
                                 values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
@@ -95,6 +94,10 @@ function Validator(options) {
                         return values;
                     }, {});
                     options.onSubmit(formValues);
+                    // reset value
+                    Array.from(enableInputs).forEach(function (values) {
+                        values.value = "";
+                    })
                 }
                 // Trường hợp submit với hành vi mặc định
                 else {
