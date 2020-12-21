@@ -29,16 +29,16 @@
                 <div class="header__nav">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="" class="item__link">Home</a>
+                            <p href="" class="item__link">Home</p>
                         </li>
                         <li class="nav__item">
-                            <a href="" class="item__link">Login/Register</a>
+                            <p href="" class="item__link" id="loginBtn">Login/Register</p>
                         </li>
                         <li class="nav__item">
-                            <a href="" class="item__link">Dark mode</a>
+                            <p href="" class="item__link">Dark mode</p>
                         </li>
                         <li class="nav__item">
-                            <a href="" class="item__link">Logout</a>
+                            <p href="" class="item__link">Logout</p>
                         </li>
                     </ul>
                 </div>
@@ -163,65 +163,70 @@
         </div>
     </footer>
     <!-- modal -->
-    <div class="modal">
-        <!-- login form -->
-        <form action="" method="POST" class="form form--login" id="form-2">
-            <div class="form-group">
+    <div class="modal" id="loginModal">
+        <!-- overlay -->
+        <div class="modal__overlay"></div>
+        <!-- modal body -->
+        <div class="modal__body">
+            <form action="" method="POST" class="form form--login" id="form-2">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input id="username" name="username" type="text" class="form-control">
+                    <span class="form-message"></span>
+                  </div>
+          
+                <div class="form-group">
+                  <label for="password" class="form-label">Password</label>
+                  <input id="password" name="password" type="password" class="form-control">
+                  <span class="form-message"></span>
+                </div>
+          
+                <button class="form-submit">Login</button>
+                <p class="form-notice">
+                    Click out to hide modal
+                </p>
+            </form>
+            <!-- register form -->
+            <form action="" method="POST" class="form form--register" id="form-1">
+              <div class="form-group">
                 <label for="username" class="form-label">Username</label>
                 <input id="username" name="username" type="text" class="form-control">
                 <span class="form-message"></span>
               </div>
-      
-            <div class="form-group">
-              <label for="password" class="form-label">Password</label>
-              <input id="password" name="password" type="password" class="form-control">
-              <span class="form-message"></span>
-            </div>
-      
-            <button class="form-submit">Login</button>
-            <p class="form-notice">
-                Click out to hide modal
-            </p>
-        </form>
-        <!-- register form -->
-        <form action="" method="POST" class="form form--register" id="form-1">
-          <div class="form-group">
-            <label for="username" class="form-label">Username</label>
-            <input id="username" name="username" type="text" class="form-control">
-            <span class="form-message"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <input id="password" name="password" type="password" class="form-control">
-            <span class="form-message"></span>
-          </div>
     
-          <div class="form-group">
-            <label for="password_confirmation" class="form-label">Confirm Password</label>
-            <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
-            <span class="form-message"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="phone" class="form-label">Phone number</label>
-            <input id="phone" name="phone" type="text" class="form-control">
-            <span class="form-message"></span>
-          </div>
-
-          <div class="form-group">
-            <label for="address" class="form-label">Address</label>
-            <input id="address" name="address" type="text" class="form-control">
-            <span class="form-message"></span>
-          </div>
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" class="form-control">
+                <span class="form-message"></span>
+              </div>
+        
+              <div class="form-group">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input id="password_confirmation" name="password_confirmation" type="password" class="form-control">
+                <span class="form-message"></span>
+              </div>
     
-          <button class="form-submit">Register</button>
-        </form>
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone number</label>
+                <input id="phone" name="phone" type="text" class="form-control">
+                <span class="form-message"></span>
+              </div>
+    
+              <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <input id="address" name="address" type="text" class="form-control">
+                <span class="form-message"></span>
+              </div>
+        
+              <button class="form-submit">Register</button>
+            </form>
+        </div>
         
       </div>
       <!-- Sweet Alert 2- Successful Login/Register -->
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="./assets/js/validator.js"></script>
+      <!-- Validator -->
       <script>
         var arrData = [];
         document.addEventListener('DOMContentLoaded', function () {
@@ -308,6 +313,24 @@
           });
         });
         
+      </script>
+      <!-- Login -->
+      <script>
+        //   Get the modal
+          var modal = document.getElementById('loginModal');
+          console.log(modal);
+        // get the button
+         var loginBtn= document.getElementById('loginBtn');
+         console.log(loginBtn);
+         // When the user clicks the button, open the modal 
+        loginBtn.onclick = function (){
+            modal.style.visibility = "visible";
+        };
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
       </script>
 </body>
 </html>
