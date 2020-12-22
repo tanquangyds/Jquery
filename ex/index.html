@@ -231,108 +231,114 @@
       <script>
         
         document.addEventListener('DOMContentLoaded', function () {
+            // created data array save register object
             var arrData = [];
             var isLogin = false;
+            // register validator
             Validator({
-            form: '#form-1',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-              Validator.isRequired('#username'),
-              Validator.isUsername('#username'),
-              Validator.minLength('#username', 6, 'Username must be at least 6 characters long'),
-              Validator.maxLength('#username', 20, 'Username must be maximum 20 characters long'),
-              Validator.minLength('#password', 6),
-              Validator.maxLength('#password', 12),
-              Validator.isPassword('#password'),
-              Validator.isRequired('#password_confirmation'),
-              Validator.isConfirmed('#password_confirmation', function () {
-                return document.querySelector('#form-1 #password').value;
-              }, 'Password and confirm password do not match'),
-              Validator.isRequired('#phone'),
-              Validator.isPhoneNumber('#phone'),
-            ],
-            onSubmit: function (data) {
-                Swal.fire({
-                        icon: 'success',
-                        title: `Thank you for your registration!`,
-                        showConfirmButton: true,
-                        confirmButtonText: 
-                        '<i>Login now</i>',
-                        // timer: 1500,
-                })
-                arrData.push(data);
-                localStorage['data'] = JSON.stringify(arrData);
-            }
-          });
-          Validator({
-            form: '#form-2',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-            Validator.isRequired('#username'),
-              Validator.isUsername('#username'),
-              Validator.minLength('#username', 6, 'Username must be at least 6 characters long'),
-              Validator.maxLength('#username', 20, 'Username must be maximum 20 characters long'),
-              Validator.minLength('#password', 6),
-              Validator.maxLength('#password', 12),
-              Validator.isPassword('#password'),
-            ],
-            onSubmit: function (data) {
-                // get username and password
-                var userName = data.username;
-                var password = data.password;
-                // get data from local storage
-                showData = JSON.parse(localStorage['data']);
-                // verify user
-                var isVerified = false;
-                showData.forEach(function (el) {
-                    if (el.username === userName && el.password === password) {
-                        isVerified = true;
-                    };
-                });
-                if (isVerified) {
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                Validator.isRequired('#username'),
+                Validator.isUsername('#username'),
+                Validator.minLength('#username', 6, 'Username must be at least 6 characters long'),
+                Validator.maxLength('#username', 20, 'Username must be maximum 20 characters long'),
+                Validator.minLength('#password', 6),
+                Validator.maxLength('#password', 12),
+                Validator.isPassword('#password'),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Password and confirm password do not match'),
+                Validator.isRequired('#phone'),
+                Validator.isPhoneNumber('#phone'),
+                ],
+                onSubmit: function (data) {
                     Swal.fire({
-                        icon: 'success',
-                        title: `Welcome to Bella onoje's food`,
-                        showConfirmButton: false,
-                        timer: 1500,
-                    });
-                    setTimeout(document.getElementById('logInBtn').innerText = `Hello: ${userName}`, 1500);
-                    setTimeout(document.getElementById('logOutBtn').classList.remove('display-none'), 1500);
-                    setTimeout(closeModal, 1500);
-                    isLogin = true;
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Wrong username or password!',
-                        showConfirmButton: true,
-                        confirmButtonText: 'Retry',
+                            icon: 'success',
+                            title: `Thank you for your registration!`,
+                            showConfirmButton: true,
+                            confirmButtonText: 
+                            '<i>Login now</i>',
+                            // timer: 1500,
                     })
-                    isLogin = false;
+                    arrData.push(data);
+                    localStorage['data'] = JSON.stringify(arrData);
                 }
-                console.log(isLogin);
-            }
-          });
-            //   login/logout
+            });
+            // login validator
+            Validator({
+                form: '#form-2',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                Validator.isRequired('#username'),
+                Validator.isUsername('#username'),
+                Validator.minLength('#username', 6, 'Username must be at least 6 characters long'),
+                Validator.maxLength('#username', 20, 'Username must be maximum 20 characters long'),
+                Validator.minLength('#password', 6),
+                Validator.maxLength('#password', 12),
+                Validator.isPassword('#password'),
+                ],
+                onSubmit: function (data) {
+                    // get username and password
+                    var userName = data.username;
+                    var password = data.password;
+                    // get data from local storage
+                    showData = JSON.parse(localStorage['data']);
+                    // verify user
+                    var isVerified = false;
+                    showData.forEach(function (el) {
+                        if (el.username === userName && el.password === password) {
+                            isVerified = true;
+                        };
+                    });
+                    if (isVerified) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: `Welcome to Bella onoje's food`,
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        setTimeout(document.getElementById('logInBtn').innerText = `Hello: ${userName}`, 1500);
+                        setTimeout(document.getElementById('logOutBtn').classList.remove('display-none'), 1500);
+                        setTimeout(closeModal, 1500);
+                        isLogin = true;
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Wrong username or password!',
+                            showConfirmButton: true,
+                            confirmButtonText: 'Retry',
+                        })
+                        isLogin = false;
+                    }
+                    console.log(isLogin);
+                }
+            });
+            // login/logout
             console.log(isLogin);
-            if (isLogin === false) {
+            // login/register button
+            if (!isLogin) {
                 logInBtn.onclick = openModal;
             } else {
-                alert("you are login")
+                alert("You are login");
             }
+            // hide modal
             window.onclick = function(event) {
                 if (event.target == modalOverlay) {
                     closeModal();
                 }
             };
+            // logout button
             logOutBtn.onclick = function() {
                 logInBtn.innerText = 'Login/Register';
                 logOutBtn.classList.add('display-none');
                 isLogin = false;
             };
-
+            // change mode
             document.querySelector('#colorThemes').onclick = function() {
                 var  body = document.querySelector('.body');
                 if (body.classList.contains('dark')) {
