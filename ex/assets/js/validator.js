@@ -1,6 +1,5 @@
 // Đối tượng `Validator`
 function Validator(options) {
-    var arrData = [];
     function getParent(element, selector) {
         while (element.parentElement) {
             if (element.parentElement.matches(selector)) {

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="stylesheet" href="./assets/css/nomalize.css">
     <link rel="stylesheet" href="./assets/css/reset.local.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="body" >
     <header>
         <div class="grid wide">
             <div class="row no-gutters align-items-center">
@@ -29,16 +29,16 @@
                 <div class="header__nav">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <p href="" class="item__link">Home</p>
+                            Home
                         </li>
-                        <li class="nav__item">
-                            <p href="" class="item__link" id="loginBtn">Login/Register</p>
+                        <li class="nav__item " id="logInBtn">
+                            Login/Register
                         </li>
-                        <li class="nav__item">
-                            <p href="" class="item__link">Dark mode</p>
+                        <li class="nav__item" id="colorThemes">
+                            Dark mode
                         </li>
-                        <li class="nav__item">
-                            <p href="" class="item__link">Logout</p>
+                        <li class="nav__item display-none" id="logOutBtn">
+                            Logout
                         </li>
                     </ul>
                 </div>
@@ -163,11 +163,11 @@
         </div>
     </footer>
     <!-- modal -->
-    <div class="modal" id="loginModal">
+    <div class="modal" id="logInModal">
         <!-- overlay -->
-        <div class="modal__overlay"></div>
+        <div class="modal__overlay" id="modal__overlay" ></div>
         <!-- modal body -->
-        <div class="modal__body">
+        <div class="modal__body" id="modalBody">
             <form action="" method="POST" class="form form--login" id="form-2">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
@@ -226,11 +226,14 @@
       <!-- Sweet Alert 2- Successful Login/Register -->
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="./assets/js/validator.js"></script>
+      <script src="./assets/js/modal_handler.js"></script>
       <!-- Validator -->
       <script>
-        var arrData = [];
+        
         document.addEventListener('DOMContentLoaded', function () {
-          Validator({
+            var arrData = [];
+            var isLogin = false;
+            Validator({
             form: '#form-1',
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
@@ -260,8 +263,6 @@
                 })
                 arrData.push(data);
                 localStorage['data'] = JSON.stringify(arrData);
-                
-                // console.log(showData);
             }
           });
           Validator({
@@ -294,11 +295,13 @@
                     Swal.fire({
                         icon: 'success',
                         title: `Welcome to Bella onoje's food`,
-                        showConfirmButton: true,
-                        confirmButtonText: 
-                        `<a href="index.html">Next</a>`,
-                        // timer: 1500,
-                    })
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setTimeout(document.getElementById('logInBtn').innerText = `Hello: ${userName}`, 1500);
+                    setTimeout(document.getElementById('logOutBtn').classList.remove('display-none'), 1500);
+                    setTimeout(closeModal, 1500);
+                    isLogin = true;
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -307,30 +310,42 @@
                         showConfirmButton: true,
                         confirmButtonText: 'Retry',
                     })
+                    isLogin = false;
                 }
-                // console.log(data);
+                console.log(isLogin);
             }
           });
+            //   login/logout
+            console.log(isLogin);
+            if (isLogin === false) {
+                logInBtn.onclick = openModal;
+            } else {
+                alert("you are login")
+            }
+            window.onclick = function(event) {
+                if (event.target == modalOverlay) {
+                    closeModal();
+                }
+            };
+            logOutBtn.onclick = function() {
+                logInBtn.innerText = 'Login/Register';
+                logOutBtn.classList.add('display-none');
+                isLogin = false;
+            };
+
+            document.querySelector('#colorThemes').onclick = function() {
+                var  body = document.querySelector('.body');
+                if (body.classList.contains('dark')) {
+                    document.querySelector('.body').classList.remove('dark');
+                    document.querySelector('#colorThemes').innerText = 'Dark Mode';
+                } else {
+                    document.querySelector('.body').classList.add('dark');
+                    document.querySelector('#colorThemes').innerText = 'Light Mode';
+                }
+                
+            }
         });
         
-      </script>
-      <!-- Login -->
-      <script>
-        //   Get the modal
-          var modal = document.getElementById('loginModal');
-          console.log(modal);
-        // get the button
-         var loginBtn= document.getElementById('loginBtn');
-         console.log(loginBtn);
-         // When the user clicks the button, open the modal 
-        loginBtn.onclick = function (){
-            modal.style.visibility = "visible";
-        };
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-      </script>
+    </script>
 </body>
 </html>

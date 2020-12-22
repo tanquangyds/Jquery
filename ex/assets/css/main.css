@@ -1,3 +1,13 @@
+.dark {
+    background-color: #222;
+    color: white;
+
+}
+
+.dark--md {
+    background: #333;
+}
+
 /* header */
 header {
     height: 155px;
@@ -19,7 +29,9 @@ header {
 
 .nav__item {
     margin-left: 114px;
+    cursor: pointer;
 }
+
 /* backround */
 .showcase {
     width: 100%;
