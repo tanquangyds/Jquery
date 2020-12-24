@@ -19,3 +19,9 @@ var closeModal = function (){
         modal.classList.remove('display-flex');
     }, 300)
 };
+
+var isLogin = function () {
+    if(!document.getElementById('logInBtn').classList.contains('disable')) {
+        openModal();
+    }
+}

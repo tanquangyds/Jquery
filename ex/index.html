@@ -233,7 +233,6 @@
         document.addEventListener('DOMContentLoaded', function () {
             // created data array save register object
             var arrData = [];
-            var isLogin = false;
             // register validator
             Validator({
                 form: '#form-1',
@@ -301,10 +300,10 @@
                             showConfirmButton: false,
                             timer: 1500,
                         });
-                        setTimeout(document.getElementById('logInBtn').innerText = `Hello: ${userName}`, 1500);
-                        setTimeout(document.getElementById('logOutBtn').classList.remove('display-none'), 1500);
+                        document.getElementById('logInBtn').classList.add('disable');
+                        document.getElementById('logInBtn').innerText = `Hello: ${userName}`;
+                        logOutBtn.classList.remove('display-none');
                         setTimeout(closeModal, 1500);
-                        isLogin = true;
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -315,18 +314,12 @@
                         })
                         isLogin = false;
                     }
-                    console.log(isLogin);
                 }
             });
-            // login/logout
-            console.log(isLogin);
-            // login/register button
-            if (!isLogin) {
-                logInBtn.onclick = openModal;
-            } else {
-                alert("You are login");
+            
+            logInBtn.onclick = function() {
+                isLogin();
             }
-            // hide modal
             window.onclick = function(event) {
                 if (event.target == modalOverlay) {
                     closeModal();
@@ -336,7 +329,7 @@
             logOutBtn.onclick = function() {
                 logInBtn.innerText = 'Login/Register';
                 logOutBtn.classList.add('display-none');
-                isLogin = false;
+                document.getElementById('logInBtn').classList.remove('disable');
             };
             // change mode
             document.querySelector('#colorThemes').onclick = function() {

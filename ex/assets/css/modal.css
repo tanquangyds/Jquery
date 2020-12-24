@@ -1,13 +1,13 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 html {
-  color: #333;
+  color: #333 !important;
   font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
-}
+} */
 .modal {
   position: fixed;
   top: 0;
@@ -17,6 +17,7 @@ html {
   min-height: 100vh;
   display: none;
   justify-content: center;
+  color: #333 !important;
 }
 
 
@@ -32,7 +33,7 @@ html {
 .modal__overlay--fadeOut {
   animation: fadeOut linear .3s;
   opacity: 0;
-
+  z-index: -999;
 }
 
 .modal__body {
@@ -45,7 +46,8 @@ html {
 
 .modal__body--slideDown {
   animation: slideDown linear .3s;
-  transform: translateY(100vh)
+  transform: translateY(100vh);
+  z-index: -999;
 }
 
 .form {

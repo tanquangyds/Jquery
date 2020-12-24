@@ -80,6 +80,7 @@ header {
 }
 
 .overview {
+    margin: 0 auto;
     width: 100%;
     height: 604px;
     position: relative;
@@ -99,12 +100,12 @@ header {
 .overview__img--1 {
     position: absolute;
     top: -143px;
-    left: 25%;
+    left: 172px;
 }
 .overview__img--2 {
     position: absolute;
     top: -27px;
-    left: 50%
+    left: 354px;
 }
 
 .manual {
