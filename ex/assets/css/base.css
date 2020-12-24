@@ -30,6 +30,18 @@ html {
     align-items: center;
 }
 
+/* grid */
+.grid {
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.grid.wide {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+}
 /* Animation */
 
 @keyframes fadeIn {

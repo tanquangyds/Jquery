@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./assets/css/reset.local.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,11 +21,19 @@
 <body class="body" >
     <header>
         <div class="grid wide">
-            <div class="row no-gutters align-items-center">
+            <div class="header__container">
+                <div class="list__menu show-on-mobile-tablet">
+                    <img src="https://img.icons8.com/flat_round/64/000000/list.png"/>
+                </div>
                 <div class="logo">
                     <img src="./assets/img/logo.png" alt="" class="img_logo">
+                    <div class="nav__mobile-tablet">
+                        <div class="nav__mobile-tablet-item">Login/Register</div>
+                        <div class="nav__mobile-tablet-item">Dark mode</div>
+                        <div class="nav__mobile-tablet-item">Logout</div>
+                    </div>
                 </div>
-                <div class="header__nav">
+                <div class="header__nav hide-on-mobile-tablet">
                     <ul class="nav__list">
                         <li class="nav__item">
                             Home
