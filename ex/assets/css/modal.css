@@ -18,9 +18,8 @@ html {
   display: none;
   justify-content: center;
   color: #333 !important;
+  z-index: 1000;
 }
-
-
 
 .modal__overlay {
   position: absolute;

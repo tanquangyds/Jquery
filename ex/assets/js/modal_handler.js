@@ -1,6 +1,7 @@
 //   Get the modal
 var modal = document.getElementById('logInModal');
 var modalOverlay = document.getElementById('modal__overlay');
+var navOverlay = document.getElementById('nav__overlay');
 var modalBody = document.getElementById('modalBody');
 // get the button
 var loginBtn= document.getElementById('logInBtn');

@@ -19,21 +19,17 @@
 
 </head>
 <body class="body" >
+    <div class="nav__overlay" id="nav__overlay"></div>
     <header>
         <div class="grid wide">
             <div class="header__container">
-                <div class="list__menu show-on-mobile-tablet">
-                    <img src="https://img.icons8.com/flat_round/64/000000/list.png"/>
+                <div class="list__menu show-on-mobile-tablet" id="listMenu">
+                    <img  class="list__menu_img" src="https://img.icons8.com/flat_round/64/000000/list.png"/>
                 </div>
                 <div class="logo">
                     <img src="./assets/img/logo.png" alt="" class="img_logo">
-                    <div class="nav__mobile-tablet">
-                        <div class="nav__mobile-tablet-item">Login/Register</div>
-                        <div class="nav__mobile-tablet-item">Dark mode</div>
-                        <div class="nav__mobile-tablet-item">Logout</div>
-                    </div>
                 </div>
-                <div class="header__nav hide-on-mobile-tablet">
+                <div class="header__nav">
                     <ul class="nav__list">
                         <li class="nav__item">
                             Home
@@ -71,13 +67,8 @@
             </div>
         </div>
         <div class="grid wide">
-            <div class="overview">
-                <div class="overview__img--1">
-                    <img src="./assets/img/overview_img_1.png" alt="" class="overview__img--1">
-                </div>
-                <div class="overview__img--2">
-                    <img src="./assets/img/overview_img_2.png" alt="" class="overview__img--2">
-                </div>
+            <div class="overview hide-on-mobile">
+                <img src="./assets/img/oveview_img.png" alt="" class="overview__img">
             </div>
             <div class="manual">
                 <h2 class="manual__title">How the app works</h2>
@@ -97,7 +88,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="manual__main">
+                <div class="manual__main manual__main--2">
                     <div class="manual__feature manual__feature--2">
                         <h5 class="feature__subtitle">
                             Explore varieties
@@ -110,7 +101,7 @@
                         </p>
                     </div>
                     <div class="munual__img ">
-                        <img class="manual__img__link munual__img__link--2" src="./assets/img/ft2.png" alt="">
+                        <img class="manual__img__link manual__img__link--2" src="./assets/img/ft2.png" alt="">
                     </div>
                 </div>
                 <div class="manual__main manual__main--3">
@@ -149,7 +140,7 @@
     <footer>
         <div class="grid wide">
             <div class="footer__container">
-                <div class="logo">
+                <div class="logo_footer">
                     <img src="./assets/img/logo.png" alt="" class="img_logo">
                 </div>
                 <div class="social">
@@ -229,14 +220,13 @@
             </form>
         </div>
         
-      </div>
-      <!-- Sweet Alert 2- Successful Login/Register -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script src="./assets/js/validator.js"></script>
-      <script src="./assets/js/modal_handler.js"></script>
-      <!-- Validator -->
-      <script>
-        
+    </div>
+    <!-- Sweet Alert 2- Successful Login/Register -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./assets/js/validator.js"></script>
+    <script src="./assets/js/modal_handler.js"></script>
+    <!-- Validator -->
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             // created data array save register object
             var arrData = [];
@@ -329,7 +319,11 @@
             }
             window.onclick = function(event) {
                 if (event.target == modalOverlay) {
-                    closeModal();
+                    closeModal(event.target == navOverlay);
+                }
+                if (event.target == navOverlay) {
+                    document.querySelector('.nav__list').classList.toggle('nav__list--slideLefts');
+                    navOverlay.classList.toggle('nav__overlay--fadeOut');
                 }
             };
             // logout button
@@ -349,6 +343,11 @@
                     document.querySelector('#colorThemes').innerText = 'Light Mode';
                 }
                 
+            }
+            // mobile-tablet 
+            document.querySelector('#listMenu').onclick = function() {
+                document.querySelector('.nav__list').classList.toggle('nav__list--slideLefts');
+                navOverlay.classList.toggle('nav__overlay--fadeOut');
             }
         });
         
