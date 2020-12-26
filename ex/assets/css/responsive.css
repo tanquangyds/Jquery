@@ -64,7 +64,7 @@
     .nav__list--slideLefts {
         animation: slideLeft linear .3s;
         transform: translateX(-100%);
-      }
+    }
         
     .nav__item {
         margin-left: 0px;

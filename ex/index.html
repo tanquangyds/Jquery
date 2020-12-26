@@ -339,7 +339,12 @@
                 if (body.classList.contains('dark')) {
                     document.querySelector('.body').classList.remove('dark');
                     document.querySelector('#colorThemes').innerText = 'Dark Mode';
+                    document.querySelectorAll('.form')[0].classList.remove('dark');
+                    document.querySelectorAll('.form')[1].classList.remove('dark');
+
                 } else {
+                    document.querySelectorAll('form')[0].classList.add('dark');
+                    document.querySelectorAll('form')[1].classList.add('dark');
                     document.querySelector('.body').classList.add('dark');
                     document.querySelector('#colorThemes').innerText = 'Light Mode';
                 }
