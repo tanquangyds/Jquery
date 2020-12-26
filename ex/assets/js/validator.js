@@ -216,3 +216,12 @@ Validator.isPhoneNumber = function (selector, message) {
         }
     }
 }
+
+Validator.isAddress = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            return (value.length === 0 || value.length >= 20) ? undefined :  message || 'Address must be over 20 characters long';
+        }
+    }
+}

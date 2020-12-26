@@ -249,6 +249,7 @@
                 }, 'Password and confirm password do not match'),
                 Validator.isRequired('#phone'),
                 Validator.isPhoneNumber('#phone'),
+                Validator.isAddress('#address'),
                 ],
                 onSubmit: function (data) {
                     Swal.fire({

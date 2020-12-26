@@ -17,7 +17,7 @@ html {
   min-height: 100vh;
   display: none;
   justify-content: center;
-  color: #333 !important;
+  color: #333;
   z-index: 1000;
 }
 
@@ -54,7 +54,7 @@ html {
   height: 600px;
   padding: 32px 24px;
   text-align: center;
-  background: #FFFAFA;
+  background-color: #FFFAFA;
   border-radius: 8px;
   border: 1px solid black;
   align-self: center;
