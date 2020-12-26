@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/modal.css">
+    <link rel="stylesheet" href="./assets/css/nomalize.css">
+    <link rel="stylesheet" href="./assets/css/reset.local.css">
+    <link rel="stylesheet" href="./assets/css/slide-show.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="grid">
+            <ul class="header__nav">
+                <li class="nav__list">
+                    <a href="./index.html" class="nav__link">Product</a>
+                </li>
+                <li class="nav__list">
+                    <a href="" class="nav__link">Destination</a>
+                </li>
+                <li class="nav__list">
+                    <a href="" class="nav__link">Our Story</a>
+                </li>
+                <li class="nav__list nav__active">
+                    <a href="" class="nav__link" id="logInBtn">Login</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="modal" id="logInModal">
+        <!-- modal body -->
+        <div class="modal__body" id="modalBody">
+            <div class="button__switch">
+                <button class="button button__register " id="chosenRegister">Register</button>
+                <button class="button button__login form__active" id="chosenLogin">Login</button>
+            </div>
+            <form action="" method="POST" class="form form--login display__block" id="form-2">
+                <div class="form-group">
+                    <label for="email" class="form-label"></label>
+                    <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                    <span class="form-message"></span>
+                  </div>
+          
+                <div class="form-group">
+                    <label for="password" class="form-label"></label>
+                  <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                  <span class="form-message"></span>
+                </div>
+          
+                <button class="form-submit">Login</button>
+                <div class="notice">
+                    <div class="rule">
+                        <a href="">Read the program rule</a>
+                    </div>
+                    <div class="login_faqs">
+                        <a  class="faqs_link" href="./index.html">FAQs</a>
+                    </div>
+                </div>
+            </form>
+            <!-- register form -->
+            <form action="" method="POST" class="form form--register" id="form-1">
+              <div class="form-group">
+                <label for="email" class="form-label"></label>
+                <input id="email" name="email" type="text" class="form-control" placeholder="Email">
+                <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email_confirm" class="form-label"></label>
+                <input id="email_confirm" name="email_confirm" type="text" class="form-control" placeholder="Confirm Email">
+                <span class="form-message"></span>
+              </div>
+    
+              <div class="form-group">
+                <label for="password" class="form-label"></label>
+                <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                <span class="form-message"></span>
+              </div>
+        
+              <div class="form-group">
+                <label for="password_confirmation" class="form-label"></label>
+                <input id="password_confirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirm Password">
+                <span class="form-message"></span>
+              </div>
+        
+              <button class="form-submit">Register</button>
+            </form>
+        </div>
+        
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="grid">
+            <div class="footer__container">
+                <div class="social"></div>
+                <div class="coppyright"> © Copyright 2019 All Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="./assets/js/faq.js"></script>
+<script src="./assets/js/switch_form.js"></script>
+<script src="./assets/js/validator.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // created data array save register object
+        var arrData = [];
+        // register validator
+        // 
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#email'),
+                Validator.isEmail('#email'),
+                Validator.isRequired('#email_confirm'),
+                Validator.isConfirmed('#email_confirm', function () {
+                    return document.querySelector('#form-1 #email').value;
+                }, 'Email and confirm email do not match'),
+                Validator.minLength('#password', 6),
+                Validator.maxLength('#password', 12),
+                Validator.isPassword('#password'),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'Password and confirm password do not match'),
+            ],
+            onSubmit: function (data) {
+                Swal.fire({
+                        icon: 'success',
+                        title: `Thank you for your registration!`,
+                        showConfirmButton: true,
+                        confirmButtonText: 
+                        '<i>Login now</i>',
+                        // timer: 1500,
+                })
+                
+                arrData.push(data);
+                localStorage['data'] = JSON.stringify(arrData);
+            }
+        });
+        // login validator
+        Validator({
+            form: '#form-2',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+            Validator.isRequired('#email'),
+            Validator.isRequired('#password'),
+            Validator.isPassword('#password'),
+            ],
+            onSubmit: function (data) {
+                // get username and password
+                var userName = data.username;
+                var password = data.password;
+                // get data from local storage
+                showData = JSON.parse(localStorage['data']);
+                // verify user
+                var isVerified = false;
+                showData.forEach(function (el) {
+                    if (el.username === userName && el.password === password) {
+                        isVerified = true;
+                    };
+                });
+                if (isVerified) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: `Welcome!`,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    localStorage['login'] = JSON.stringify(data);
+                    window.location.href = "./index.html";
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Wrong username or password!',
+                        showConfirmButton: true,
+                        confirmButtonText: 'Retry',
+                    })
+                }
+            }
+        });
+    });
+        
+</script>
+</html>

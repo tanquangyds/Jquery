@@ -1,0 +1,260 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --primary-color: #EE2D30;
+    --border-color: #dbdbdb;
+    --header-height: 155px;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+/* grid */
+.grid {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Button Style */
+.btn {
+    min-width: 142px;
+    height: 34px;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+    background-color: transparent;
+    color: white;
+}
+
+.btn_showcase {
+    width:236px;
+    Height: 68px;
+    border-radius: 999px;
+    padding: 16px 0;
+    margin-left: 100px;
+}
+.btn_showcase:last-child {
+    margin-left: 40px;
+}
+
+.btn.auth-form__control-back:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+
+}
+
+.btn.btn--disable {
+    color: #666;
+    background-color: #888;
+    cursor: default;
+}
+
+.btn.btn--size-s {
+    height: 30px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+}
+
+
+/* Select input */
+/* 
+.select-input {
+    position: relative;
+    height: 34px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    z-index: 1;
+}
+
+.select-input:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    left: 0px;
+    top: 30px;
+}
+
+.select-input:hover .select-input__select {
+    display: block;
+}
+
+.select-input__title {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.select-input-icon {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.select-input__select {
+    position: absolute;
+    top: 27px;
+    width: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    padding: 8px 12px;
+    display: none;
+}
+
+.select-input__item {
+    list-style: none;
+}
+
+.select-input__link {
+    text-decoration: none;
+    display: block;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    padding: 4px 0px;
+}
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center
+    
+}
+
+.pagination-item {
+    list-style: none;
+    margin: 0px 12px;
+}
+
+.pagination-item--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    background-color: var(--primary-color);
+    filter: brightness(110%);
+    color: var(--white-color);
+}
+
+.pagination-item__link {
+    --hight: 30px;
+    text-decoration: none;
+    color: #919191;
+    font-size: 1.8rem;
+    min-width: 40px;
+    height: var(--hight);
+    line-height: var(--hight);
+    display: block;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.btn--square {
+    width: 142px;
+    height: 64px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+} */
