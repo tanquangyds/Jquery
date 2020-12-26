@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="stylesheet" href="./assets/css/nomalize.css">
     <link rel="stylesheet" href="./assets/css/reset.local.css">
     <link rel="stylesheet" href="./assets/css/slide-show.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <!-- <link rel="stylesheet" href="./assets/css/responsive.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -58,8 +61,12 @@
                   <input id="password" name="password" type="password" class="form-control" placeholder="Password">
                   <span class="form-message"></span>
                 </div>
-          
-                <button class="form-submit">Login</button>
+                <div class="button_login">
+                    <div class="forgot_container">
+                        <a class="forgot" href="">Forgot password</a>
+                    </div>
+                    <button class="form-submit">Login</button>
+                </div>
                 <div class="notice">
                     <div class="rule">
                         <a href="">Read the program rule</a>
@@ -104,7 +111,17 @@
     <footer>
         <div class="grid">
             <div class="footer__container">
-                <div class="social"></div>
+                <div class="social">
+                    <a href="" class="social__link">
+                        <i class="icon__link fab fa-facebook-square"></i>
+                    </a>
+                    <a href="" class="social__link">
+                        <i class="icon__link fab fa-instagram"></i>
+                    </a>
+                    <a href="" class="social__link">
+                        <i class="icon__link fab fa-twitter-square"></i>
+                    </a>
+                </div>
                 <div class="coppyright"> © Copyright 2019 All Rights Reserved</div>
             </div>
         </div>
@@ -184,7 +201,9 @@
                         timer: 1500,
                     });
                     localStorage['login'] = JSON.stringify(data);
-                    window.location.href = "./index.html";
+                    setTimeout(function(){
+                        window.location.href = "./index.html";
+                    }, 1500)
                 } else {
                     Swal.fire({
                         icon: 'error',
